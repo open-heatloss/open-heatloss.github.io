@@ -1,0 +1,35 @@
+html {
+  height: 100%;
+  width: 100%;
+}
+
+body {
+  height: 100%;
+  max-width: 640px;
+  margin: 0 auto;
+  padding: 4rem 16px;
+
+  display: flex;
+  flex-direction: column;
+}
+
+h2 {
+  font-size: 1.3rem;
+  color: hsl(20, 0%, 25%);
+}
+
+h3 {
+  font-size: 1.15rem;
+  color: hsl(20, 0%, 45%);
+}
+
+footer {
+  margin-top: 4rem;
+  padding-top: 24px;
+  border-top: 1px solid lightgray;
+}
+
+img {
+  display: block;
+  border-radius: 6px;
+}

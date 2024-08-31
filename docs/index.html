@@ -1,0 +1,146 @@
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>Open Heatloss</title>
+
+    <script type="module">
+      document.documentElement.classList.remove("no-js");
+      document.documentElement.classList.add("js");
+    </script>
+
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/@picocss/pico@2/css/pico.min.css"
+    />
+    <link rel="stylesheet" href="/assets/styles.css" />
+
+    <meta name="description" content="Open Heatloss Project" />
+    <meta property="og:title" content="Open Heatloss Project" />
+    <meta
+      property="og:description"
+      content="Computer vision datasets and challenges to fight climate change"
+    />
+    <meta property="og:image" content="https://ohl.ecair.eco/og.jpg" />
+    <meta property="og:image:alt" content="No image" />
+    <meta property="og:locale" content="en_GB" />
+    <meta property="og:type" content="website" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta property="og:url" content="https://ohl.ecair.eco" />
+    <link rel="canonical" href="https://ohl.ecair.eco" />
+
+    <link rel="icon" href="/favicon.ico" />
+    <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
+    <meta name="theme-color" content="#ffffff" />
+  </head>
+
+  <body>
+    <h1>Open Heatloss</h1>
+    <h2 class="subtitle">A computer vision dataset to fight climate change.</h2>
+
+    <p>
+      For the last 15 years, the French government has subsidized
+      energy-efficient home renovations. To qualify, homeowners must obtain a
+      detailed report from a certified thermal expert. These reports are
+      publicly available as part of an open data initiative.
+    </p>
+    <p>
+      Open Heatloss is the first open academic initiative to curate, augment and
+      distribute this data for ecological machine learning challenges.
+    </p>
+
+    <p>
+      <a href="https://github.com/open-heatloss">Github</a> -
+      <a href="https://huggingface.co/open-heatloss">HuggingFace</a>
+    </p>
+
+    <details>
+      <summary role="button" class="outline">See an example</summary>
+      <div>
+        <div
+          style="
+            display: flex;
+            justify-content: space-between;
+            width: 100%;
+            margin-bottom: 6px;
+          "
+        >
+          <img width="32%" src="/assets/sv.jpg" alt="Google Street View" />
+          <img width="32%" src="/assets/sat.jpg" alt="Google Satellite" />
+          <img width="32%" src="/assets/ign-sat.png" alt="IGN Aerial View" />
+        </div>
+        <pre><code>(google streetview) (google satellite) (ign satellite)
+
+# first task
+heatloss_watt_per_kelvin_per_m2: 3.4569
+
+# second task
+window_contrib:          0.1232845
+walls_contrib:           0.2184431
+lower_floors_contrib:    0.0509907
+upper_floors_contrib:    0.2366276
+thermal_bridges_contrib: 0.1741393
+doors_contrib:           0.0770217
+air_renewal_contrib:     0.1194919</code></pre>
+      </div>
+    </details>
+
+    <h3>Open Heatloss Tasks</h3>
+    <p>
+      We offer two challenges that leverage the best of the data we distribute:
+    </p>
+    <ul>
+      <li>
+        Heat loss prediction: a single number for the raw calorific power
+        exiting the house, normalized by house surface and average outside
+        temperature, giving a <b>W/K/m2</b>. The metric is the mean squared
+        error to the target on the test set.
+      </li>
+      <li>
+        Heat loss distribution across seven different core component: walls,
+        windows, etc. The metric is the average <b>cross-entropy</b> between the
+        predicted distribution and the target on the test set.
+      </li>
+    </ul>
+
+    <h3>The ADEME DPE dataset</h3>
+    <p>
+      The ADEME manages and publishes the experts' reports on residential homes.
+      Unfortunately, the quality of the reports is highly variable and the whole
+      sector has been infamous in France for its unreliability. There is a lot
+      of curation done by Ecair experts to sort out poor reports.
+    </p>
+    <p>We will publish an initial version of this dataset by October 2024.</p>
+
+    <h3>Satellite augmentation</h3>
+    <p>
+      The French geographical institute (IGN) publishes "satellite" (aerial)
+      images free of charge and distribution, which we pair with the ADEME data.
+    </p>
+    <p>
+      The making of the dataset is dependent on the precision of the geocoding
+      of the addresses - and it's all in all a hard task as the signal contained
+      in the images is not always enough to do proper inference.
+    </p>
+    <p>We will publish an initial version of this dataset by October 2024.</p>
+
+    <h3>Google Street View augmentation</h3>
+    <p>
+      There are data challenges Google takes seriously with Street View data
+      that hinders its academic distribution, but we're actively working with an
+      initiative inside the organisation to make a version publicly available
+      that doesn't break their Terms of Service.
+    </p>
+    <p>Work in progress, expecting release by Q1 or Q2 2025</p>
+
+    <footer>
+      The Open Heatloss project is supported by
+      <a href="https://www.ecair.eco">Ecair</a>, a tiny company operating on the
+      French energy retrofitting market.
+    </footer>
+
+    <!--    <script src="/assets/script.js" type="module"></script>-->
+  </body>
+</html>
